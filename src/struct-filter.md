@@ -2,6 +2,8 @@
 
 Immaginiamo di volere un array con solo gli animali con un prezzo inferiore ai 700 euro.
 
+Creiamo la funzione `filtra_prezzo` per questo scopo.
+
 ```c
 struct Animale *filtra_prezzo(struct Animale animali[], int n, int *counter) {
   struct Animale *arr_out = malloc(sizeof(struct Animale) * n);
@@ -16,7 +18,11 @@ struct Animale *filtra_prezzo(struct Animale animali[], int n, int *counter) {
 
   return arr_out;
 }
+```
 
+Ora testiamo la funzione nel main, per controllare che il nuovo array contenga effettivamente solo gli animali con il prezzo richiesto.
+
+```c
 int main() {
   struct Animale animali[] = {
       {"gatto", "siamese", 100, 1.2F, "cibo per gatti", 600.00F},
