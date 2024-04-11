@@ -1,0 +1,13 @@
+[book]
+authors = ["Claudio"]
+language = "it"
+multilingual = false
+src = "src"
+title = "Informatica - Terzo Anno - Funzioni e strutture"
+
+[build]
+create-missing = true
+
+[output.html]
+additional-css = ["custom.css"]
+git-repository-url = "https://github.com/wbigger/book-3y-cs-funzioni"
