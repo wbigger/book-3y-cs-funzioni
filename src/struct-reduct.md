@@ -1,4 +1,4 @@
-# Uso delle funzioni con strutture
+# Uso delle funzioni con strutture: riduzione
 
 Le funzioni che abbiamo visto con gli array di elementi semplici possono essere facilmente estesi con array di strutture.
 
@@ -133,71 +133,5 @@ float calcola_media(struct Animale animali[], int len) {
         somma += animali[i].prezzo_vendita;
     }
     return somma/len;
-}
-```
-
-## Mappatura
-
-Immaginiamo di voler inserire gli animali in un catalogo, nel quale però ci interessa salvare solo specie e razza
-
-Creiamo una nuova struct `AnimaleCatalogo` e facciamo la mappatura.
-
-```c
-struct AnimaleCatalogo {
-  char specie[20];
-  char razza[20];
-};
-
-void mappa_catalogo(struct Animale animale_in[], struct AnimaleCatalogo animale_out[], int len) {
-  for (int i = 0; i < len; i++) {
-        strncpy(animale_out[i].specie,animale_in[i].specie, 20);
-        strncpy(animale_out[i].razza,animale_in[i].razza, 20);
-    }
-    return;
-}
-
-int main() {
-  struct Animale animali[] = {
-    {"gatto", "siamese", 100, 1.2F, "cibo per gatti", 600.00F},
-    {"cane", "labrador", 80, 5.5F, "croccantini", 800.00F}
-  };
-  struct AnimaleCatalogo animaliCatalogo[2];
-  mappa_catalogo(animali,animaliCatalogo,2);
-  for (int i = 0; i < 2; i++) {
-    printf("animaliCatalogo[%d]: specie %s, razza %s\n",i,animaliCatalogo[i].razza,animaliCatalogo[i].specie);
-  }
-  return 0;
-}
-```
-
-## Filtro
-
-Immaginiamo di volere un array con solo gli animali con un prezzo inferiore ai 700 euro.
-
-```c
-struct Animale *filtra_prezzo(struct Animale animali[], int n, int *counter) {
-  struct Animale *arr_out = malloc(sizeof(struct Animale) * n);
-
-  for (int i = 0; i < n; i++) {
-    if (animali[i].prezzo_vendita <= 700.0F) {
-      arr_out[*counter] = animali[i];
-      (*counter)++;
-    }
-  }
-  arr_out = realloc(arr_out, sizeof(struct Animale) * (*counter));
-
-  return arr_out;
-}
-
-int main() {
-  struct Animale animali[] = {
-      {"gatto", "siamese", 100, 1.2F, "cibo per gatti", 600.00F},
-      {"cane", "labrador", 80, 5.5F, "croccantini", 800.00F}};
-  int counter = 0;
-  struct Animale *animaliEconomici =
-      filtra_prezzo(animali, 2, &counter);
-  for (int i = 0; i < counter; i++) {
-    stampa_animale(animaliEconomici[i]);
-  }
 }
 ```

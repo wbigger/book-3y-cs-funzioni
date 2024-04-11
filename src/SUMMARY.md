@@ -8,6 +8,9 @@
   - [Filtro](./filter.md)
 
 - [Strutture](./struct.md)
+  - [Riduzione](./struct-reduct.md)
+  - [Mappatura](./struct-map.md)
+  - [Filtro](./struct-filter.md)
 
-  - [Uso con le funzioni](./struct-func.md)
+  <!-- - [Uso con le funzioni](./struct-func.md) -->
   
