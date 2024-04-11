@@ -9,5 +9,5 @@
 
 - [Strutture](./struct.md)
 
-  - [Stampa](./print.md)
   - [Uso con le funzioni](./struct-func.md)
+  
