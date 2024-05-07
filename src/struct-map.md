@@ -22,12 +22,12 @@ void stampa_animale_catalogo(struct AnimaleCatalogo animale) {
 Ora scriviamo la funzione che mappa l'array degli animali con quelli di animali catalogo. Copiamo solo i campi che ci interessano e per gli altri mettiamo dei valori di default come richiesto dallo scenario.
 
 ```c
-void mappa_catalogo(struct Animale animale_in[],
-                    struct AnimaleCatalogo animale_out[], int len) {
+void mappa_catalogo(struct Animale arr_in[],
+                    struct AnimaleCatalogo arr_out[], int len) {
   for (int i = 0; i < len; i++) {
-    strncpy(animale_out[i].specie, animale_in[i].specie, 20);
-    strncpy(animale_out[i].razza, animale_in[i].razza, 20);
-    animale_out[i].id = i; // come identificativo metto la posizione nell'array
+    strncpy(arr_out[i].specie, arr_in[i].specie, 20);
+    strncpy(arr_out[i].razza, arr_in[i].razza, 20);
+    arr_out[i].id = i; // come identificativo metto la posizione nell'array
   }
   return;
 }

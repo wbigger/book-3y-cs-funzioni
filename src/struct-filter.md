@@ -6,6 +6,7 @@ Creiamo la funzione `filtra_prezzo` per questo scopo.
 
 ```c
 struct Animale *filtra_prezzo(struct Animale animali[], int n, int *counter) {
+
   struct Animale *arr_out = malloc(sizeof(struct Animale) * n);
 
   for (int i = 0; i < n; i++) {
@@ -33,5 +34,6 @@ int main() {
   for (int i = 0; i < counter; i++) {
     stampa_animale(animaliEconomici[i]);
   }
+  free(animaliEconomici);
 }
 ```
